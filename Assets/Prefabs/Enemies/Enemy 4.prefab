@@ -212,7 +212,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chanceToSpawn: 3
-  healthFuels: []
+  healthFuels:
+  - {fileID: 1045079490763907210, guid: b357aff24bc325a4ca48c19ad4af716e, type: 3}
+  - {fileID: 983960131976226032, guid: ab8cbebffcf802246858a29f37f6b19b, type: 3}
+  - {fileID: 1301950403126542410, guid: 686b93372ba33be4ea49beb2ea604c68, type: 3}
+  - {fileID: 3614867528630394489, guid: 5e7c1563ed3299c4ca45141fdbb03026, type: 3}
 --- !u!1 &7506602516145723247
 GameObject:
   m_ObjectHideFlags: 0

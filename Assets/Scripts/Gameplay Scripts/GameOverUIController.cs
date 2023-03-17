@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameOverUIController : MonoBehaviour
 {
@@ -23,9 +24,19 @@ public class GameOverUIController : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        SceneManager.activeSceneChanged += OnSceneChanged;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.activeSceneChanged -= OnSceneChanged;
+    }
+
     public void GameOver()
     {
-        gameOverCanvas.enabled = true;
+        gameOverCanvas.gameObject.SetActive(true);
         finalScoreText.text = $"Score: {GameplayUIController.intance.GetKillsCount()}";
     }
 
@@ -33,5 +44,12 @@ public class GameOverUIController : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene
             (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
+
+    private void OnSceneChanged(Scene scene, Scene mode)
+    {
+        Debug.Log("Start");
+        gameOverCanvas.gameObject.SetActive(false);
+        Debug.Log("End");
     }
 }
